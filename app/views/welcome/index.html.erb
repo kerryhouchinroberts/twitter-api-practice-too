@@ -1,0 +1,17 @@
+<h1> Kerry's Tweets </h1>
+<h2> Someone else's tweets
+
+<%= form_tag do |f| %>
+<%= label_tag(:username, "Twitter Username") %>
+<%= text_field_tag(:username) %>
+<%= submit_tag("Get Tweets") %>
+<% end %>
+</h2>
+
+<% @tweetfeed.kerrys_tweets.each do |tweet| %>
+  <blockquote class="twitter-tweet">
+    <p><%= tweet.full_text %>
+      <br />
+    <em>Created at: <%= tweet.created_at %></em></p>
+  </blockquote>
+  <% end %>
